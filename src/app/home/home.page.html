@@ -1,0 +1,51 @@
+<ion-header [translucent]="false"
+  style="margin-top: 50px;margin-left: auto;margin-right: auto; width: 60%;"
+  mode="ios">
+  <img src="/assets/epmmop.png">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card class="ion-padding" style="margin-top: 30px;">
+    <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0JGumN3otRKeIBI9q-GLUgosfhbMR7TzVMg&usqp=CAU">-->
+    <ion-card-content>
+       <ion-card-subtitle class="ion-text-center">Sistema de geolocalización para incidentes de bacheo</ion-card-subtitle>
+
+      <ion-button
+        (click)="getCoordenadas()"
+        expand="block"
+        class="ion-padding"
+        size="medium"
+        color="secondary"
+        style="height: 80px;"
+        mode="ios">
+        Obtener coordenadas
+        <ion-icon slot="start" name="locate-outline"></ion-icon>
+      </ion-button>
+
+      <ion-item>
+        <ion-label position="stacked">Latitud:</ion-label>
+        <ion-input type="text" readonly="true">{{ latitud }}</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Longitud:</ion-label>
+        <ion-input type="text" readonly="true">{{ longitud }}</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Fecha:</ion-label>
+        <ion-input type="text" readonly="true"> {{ fecha | date:'yyyy-MM-dd HH:mm:ss' }}</ion-input>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        class="ion-padding"
+        size="medium"
+        style="height: 80px;"
+        mode="ios">
+        Registrar
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
