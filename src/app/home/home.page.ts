@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
+import { PuntosBacheo } from '../_model/puntosBacheo';
+import { RegistrarService } from '../services/registrar.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,10 @@ export class HomePage {
   longitud: number;
   fecha: number;
 
-  constructor( public geolocation: Geolocation ) {
+  constructor( 
+    public geolocation: Geolocation, 
+    private registrarService: RegistrarService 
+    ) {
   }
 
   getCoordenadas() {
@@ -30,11 +35,18 @@ export class HomePage {
       this.latitud = resp.coords.latitude;
       this.longitud = resp.coords.longitude;
       this.fecha = resp.timestamp;
-
-
+      console.log(this.latitud, this.longitud)
     }).catch((error) => {
       console.log('Error getting location', error);
-    });
+    });   
+  }
 
+  registrarPunto() {
+    let punto = new PuntosBacheo();
+    punto.punLatitud = this.latitud.toString()
+    punto.punLongitud = this.longitud.toString()
+
+    this.registrarService.registrar(punto).subscribe();
+    console.log(punto)
   }
 }
