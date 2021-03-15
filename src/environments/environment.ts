@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  URL_PUNTOS: 'http://localhost:8080/CampamentoRest/procesos'
+//  URL_PUNTOS: 'http://localhost:8080/PuntosBacheoWS/rest/puntosBacheo',
+  URL_PUNTOS: 'http://10.52.66.145:8080/PuntosBacheoWS/rest/puntosBacheo'
 };
 
 /*

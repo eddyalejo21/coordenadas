@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { PuntosBacheo } from '../_model/puntosBacheo';
 
 @Injectable({
@@ -14,6 +14,7 @@ export class RegistrarService {
   constructor( private http: HttpClient ) { }
 
   registrar(punto: PuntosBacheo) {
-    return this.http.post(this.HOST, punto);
+    const headers: HttpHeaders = new HttpHeaders
+    return this.http.post(this.HOST, punto, { headers });
   }
 }
